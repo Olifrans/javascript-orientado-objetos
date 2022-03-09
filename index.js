@@ -8,18 +8,16 @@ const cliente1 = new Cliente("Olifrans", 77187558418);
 
 const contaCorente = new ContaCorrente(cliente1, 101);
 contaCorente.depositar(500);
-contaCorente.sacar(300);
+contaCorente.sacar(100);
 
 
-const contaPopanca = new ContaPoupanca(250, cliente1, 101);
+const contaPopanca = new ContaPoupanca(50, cliente1, 101);
 contaPopanca.depositar(500);
-contaPopanca.sacar(300);
+contaPopanca.sacar(100);
 
 
-console.log(contaCorente);
-console.
-
-log(contaPopanca);
+//console.log(contaCorente);
+console.log(contaPopanca);
 
 //console.log(ContaCorrente.numeroDeContas);
 
