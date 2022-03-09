@@ -1,31 +1,18 @@
 import { Cliente } from "./Cliente.js";
-import { ContaCorrente } from "./Contas/ContaCorrente.js";
-import { ContaPoupanca } from "./Contas/ContaPoupanca.js";
-import { ContaSalario } from "./Contas/ContaSalario.js";
+import { Gerente } from "./Funcionarios/Gerente.js";
+import { Diretor } from "./Funcionarios/Diretor.js";
+import { SistemaAutenticacao } from "./SistemaAutenticacao.js";
 
 
+const diretor = new Diretor("Olifrans", 15874, 77187558418);
+diretor.cadastrarSenha("123456")
+
+const gerente = new Gerente("Frans", 10874, 5451487815);
+gerente.cadastrarSenha("123")
+
+const diretorEstaLogado = SistemaAutenticacao.login (diretor, "123456")
+const gerenteEstaLogado = SistemaAutenticacao.login (gerente, "123")
 
 
-const cliente1 = new Cliente("Olifrans", 77187558418);
-
-const contaCorente = new ContaCorrente(cliente1, 101);
-contaCorente.depositar(500);
-contaCorente.sacar(100);
-
-const contaPopanca = new ContaPoupanca(50, cliente1, 101);
-contaPopanca.depositar(500);
-contaPopanca.sacar(100);
-
-// const contaSalario = new ContaSalario(cliente1);
-// contaSalario.depositar(500);
-// contaSalario.sacar(100);
-
-//const conta = new Conta(0, cliente1, 101);
-
-
-console.log(contaCorente);
-console.log(contaPopanca);
-
-//console.log(conta);
-
-//console.log(ContaCorrente.numeroDeContas);
+console.log(diretorEstaLogado);
+console.log(gerenteEstaLogado);
