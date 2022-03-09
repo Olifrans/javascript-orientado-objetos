@@ -2,8 +2,15 @@
 
 import { Cliente } from "./Cliente.js";
 
+//Class Abstrata
 export class Conta {
   constructor(saldoInicial, cliente, agencia) {
+    if (this.constructor == Conta) {
+      throw new Error(
+        "Por questão de segurança voce não deveria instaciar um objeto do tipo Conta Diretamente"
+      );
+    }
+
     this._saldo = saldoInicial;
     this._cliente = cliente;
     this._agencia = agencia;
@@ -28,11 +35,16 @@ export class Conta {
 
   sacar(valor) {
     let taxa = 1;
+    return this._sacar(valor, taxa);
+  }
+
+  _sacar(valor, taxa) {
     const valorSacado = taxa * valor;
     if (this._saldo >= valorSacado) {
       this._saldo -= valorSacado;
       return valorSacado;
     }
+    return 0;
   }
 
   depositar(valor) {
