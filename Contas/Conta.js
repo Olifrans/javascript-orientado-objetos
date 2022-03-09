@@ -1,13 +1,13 @@
 //#saldo, #cliente --> https://github.com/tc39/proposal-class-fields#private-fields
 
-import { Cliente } from "./Cliente.js";
+import { Cliente } from "../Cliente.js";
 
-//Class Abstrata
+//Class Abstrata nunca instaciada apenas herdada
 export class Conta {
   constructor(saldoInicial, cliente, agencia) {
     if (this.constructor == Conta) {
       throw new Error(
-        "Por questão de segurança voce não deveria instaciar um objeto do tipo Conta Diretamente"
+        "Não é possivél instaciar o objeto Conta-->Diretamente, Class Abstrata"
       );
     }
 
@@ -33,9 +33,11 @@ export class Conta {
     return this._saldo;
   }
 
+  //Metodo abstrato não pode ser chamado apenas sobrescrito
   sacar(valor) {
-    let taxa = 1;
-    return this._sacar(valor, taxa);
+    throw new Error(
+      "O metodo Sacar é abstrato, não pode ser chamado apenas sobrescrito"
+    );
   }
 
   _sacar(valor, taxa) {
