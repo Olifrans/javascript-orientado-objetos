@@ -1,11 +1,25 @@
 {
-  "name": "javascript-orientado-objetos",
+  "name": "java-script-oop",
   "version": "1.0.0",
-  "description": "javascript-oop",
+  "description": "Java Scrcript Orientado a Objetos",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "olifrans",
-  "license": "ISC"
+
+  "scripts": {
+    "start": "node index.js"
+},
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olifrans/javascript-orientado-objetos.git"
+  },
+  "author": "Olifrans",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Olifrans/javascript-orientado-objetos/issues"
+  },
+  "homepage": "https://github.com/Olifrans/javascript-orientado-objetos#readme"
 }
