@@ -1,11 +1,39 @@
-// import { Cliente } from "./Cliente";
-// import React from "react";
+import { Cliente } from "./Cliente.js";
 
-//#saldo = 0; --> https://github.com/tc39/proposal-class-fields#private-fields
 export class ContaCorrente {
+  //#saldo, #cliente --> https://github.com/tc39/proposal-class-fields#private-fields
+  
+  static numeroDeContas = 0;
   agencia;
-  cliente;
+  _cliente;
   _saldo = 0;
+
+  //Método Acessor de atribuição Set
+  set cliente(novoValor) {
+    if (novoValor instanceof Cliente) {
+      this._cliente = novoValor;
+    }
+  }
+
+  //Método Acessor de acesso Get
+  get cliente() {
+    return this._cliente;
+  }
+
+  //Método Acessor de acesso Get
+  get saldo() {
+    return this._saldo;
+  }
+
+  
+  constructor(agencia, cliente) {
+    this.agencia = agencia;
+    this.cliente = cliente;
+    ContaCorrente.numeroDeContas += 1;
+  }
+
+
+
 
   sacar(valor) {
     if (this._saldo >= valor) {
@@ -21,38 +49,19 @@ export class ContaCorrente {
     this._saldo += valor;
   }
 
-  
   transferir(valor, conta) {
     const valorSacado = this.sacar(valor);
     conta.depositar(valorSacado);
   }
+
+
+
 }
 
 
 
-
 // export class ContaCorrente {
-//   static numeroDeContas = 0;
 
-//   set cliente(novoValor) {
-//     if (novoValor instanceof Cliente) {
-//       this.Cliente = novoValor;
-//     }
-//   }
-
-//   get cliente() {
-//     return this._cliente;
-//   }
-
-//   get saldo() {
-//     return this.saldo;
-//   }
-
-//   constructor(agencia, cliente) {
-//     this.agencia = agencia;
-//     this.cliente = cliente;
-//     ContaCorrente.numeroDeContas += 1;
-//   }
 
 //
 //
